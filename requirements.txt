@@ -1,3 +1,5 @@
-google-generativeai
+
 pynput
 Pillow
+pyautogui
+google-generativeai

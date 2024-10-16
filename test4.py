@@ -136,8 +136,8 @@ def main():
     messages = [
         {"role": "system", "content": (
             "You are an AI assistant that helps users by analyzing screenshots with grid overlays. "
-            "Each screenshot is divided into a 3x3 grid. Your task is to reason about which cell the object is in "
-            "and return the cell number (1-9) where the object is located. You may also explain why you selected that cell."
+            "Each screenshot is divided into a 3x3 grid, consisting of 9 cells. Your task is to reason which cell the object is in. When you do this reasoning, it is very improtant that you actually understand what the object will look like, and then search for where this object is located. If it is close to the given cell number, that means that the object is in that cell. If it is not close, then the object is not in that cell. After you have reasoned and found the cell number, you will be asked to provide the cell number. You will then"
+            "and return the cell number (1-9) where the object is located. You can also explain your reasoning to the user. Let's start with the first screenshot."
         )}
     ]
 
@@ -168,7 +168,7 @@ def main():
         else:
             # Subsequent levels, instruct the AI to pick the correct cell
             messages.append({"role": "user", "content": (
-                "Look at the zoomed-in grid and choose the cell (1-9) where the object is. You may explain your reasoning."
+                "Look at the zoomed-in grid and choose the cell (1-9) where the object is. You may explain your reasoning. It is important that you actually understand what the object is and where it is located."
             )})
 
         # Send the images and messages to the AI assistant
